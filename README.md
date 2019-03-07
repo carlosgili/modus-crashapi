@@ -89,3 +89,37 @@ For a basic setup of a LAMP on a newly deployed server use:
 This application does not require the installation of MySQL so
 we skipped that setup.
 
+##Changing Apache to Port 8080
+
+I you want Apache server to Listen on port 8080, you must edit
+/etc/apache2/ports.conf and change the line:
+
+```
+Listen 0.0.0.0:80
+```
+
+For the line:
+
+```
+Listen 0.0.0.0:8080
+```
+
+And finaly change the file /etc/apache2/sites-available/default.conf
+and change the line:
+
+```
+<VirtualHost *:80>
+```
+
+For the line:
+
+```
+<VirtualHost *:8080>
+```
+
+Finally you must restart Apache:
+
+```
+# systemctl restart apache2
+```
+
