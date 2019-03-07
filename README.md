@@ -140,7 +140,7 @@ You should get a JSON reponse simillar to:
 ```
 
 If your server is accessible thru your network
-you an access the server with any browser at:
+you can access the server with any browser at:
 
 ```
 http://<your_server_ip>:8080
