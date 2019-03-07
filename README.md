@@ -92,19 +92,19 @@ For the lines:
 
 ## Downloading and Installing the Application under the Apache Server
 
-1. Enter /var/www directory
+Enter /var/www directory
 
 ```
 # cd /var/www
 ```
 
-2. You require git to download the repository:
+We will require git to download the repository:
 
 ```
 # apt-get install git
 ```
 
-3. Clone the repository:
+Clone the repository:
 
 ```
 # git clone https://cgili@bitbucket.org/cgili/modus-crashapi.git
@@ -121,12 +121,29 @@ To restart Apache use:
 
 Now it should be able to access the server at port 8080:
 
-http://<your_server_ip>:8080
+First Install lynx:
+
+```
+# apt-get install lynx
+```
+
+Now check the if the server is running:
+
+```
+# lynx http://localhost:8080
+```
 
 You should get a JSON reponse simillar to:
 
 ```
 { "status": "Ready" }
+```
+
+If your server is accessible thru your network
+you an access the server with any browser at:
+
+```
+http://<your_server_ip>:8080
 ```
 
 ## OPTIONAL: Composer and Flight Setup
