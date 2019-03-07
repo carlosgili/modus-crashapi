@@ -82,7 +82,6 @@ Flight::route('/vehicles/*', function() {
 			if( $make == "undefined" ) $make = "";
 			if( $model == "undefined" ) $model = "";
 			$fres = CrashInfo::GetCrashData( $modelyear, $make, $model, $ratings );
-			$fres = CrashInfo::GetCrashData( $data->modelYear, $data->manufacturer, $data->model, $ratings );
 			header( 'content-type: application/json;charset=UTF-8' );
 			print_r( json_encode( $fres ) );
 		} else {
