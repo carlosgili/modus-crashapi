@@ -4,7 +4,7 @@
 	"type": "library",
 	"keywords": ["api"],
 	"homepage": "https://github.com/carlosgili/modus-crashapi",
-	"license": "GPLv3",
+	"license": "AGPL-3.0-or-later",
 	"authors": [
 		{
 			"name": "Carlos Gili",
