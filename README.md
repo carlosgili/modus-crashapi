@@ -1,6 +1,6 @@
 # modus-crashapi
 
-##Crash Information API in PHP
+# Crash Information API in PHP
 
 This is a simple API implementation developed for ModusCreate in order to get
 Crash Information from NHTSA (one.nhtsa.gov) in specific JSON Format.
