@@ -74,10 +74,10 @@ To download and reinstall the Flight Framework you can check their
 site at http://flightphp.com/install/:
 
 ```
-# composer require mikecao/flight
+# php composer.phar require mikecao/flight
 ```
 
-## Basic LAMP Setup on Debin/Ubuntu
+## Basic LAMP Setup on Debian/Ubuntu
 
 For a basic setup of a LAMP on a newly deployed server use:
 
