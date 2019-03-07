@@ -121,16 +121,16 @@ To restart Apache use:
 
 Now it should be able to access the server at port 8080:
 
-First Install lynx:
+We will need wget:
 
 ```
-# apt-get install lynx
+# apt-get install wget
 ```
 
 Now check the if the server is running:
 
 ```
-# lynx http://localhost:8080
+# wget -qO- http://localhost:8080
 ```
 
 You should get a JSON reponse simillar to:
@@ -140,7 +140,7 @@ You should get a JSON reponse simillar to:
 ```
 
 If your server is accessible thru your network
-you can access the server with any browser at:
+you can also access the server with any browser at:
 
 ```
 http://<your_server_ip>:8080
