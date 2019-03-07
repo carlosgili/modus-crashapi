@@ -1,6 +1,6 @@
 # modus-crashapi
 
-Crash Information API in PHP
+##Crash Information API in PHP
 
 This is a simple API implementation developed for ModusCreate in order to get
 Crash Information from NHTSA (one.nhtsa.gov) in specific JSON Format.
@@ -11,10 +11,14 @@ compatibility checks, etc.
 
 ## Requirements
 
-- Composer (http://getcomposer.org) (Optional to Upgrade/Reinstall Flight)
-- Flight PHP Framework (http://flightphp.com) (Already Bundled with the App)
+- A Clean Server with Debian 8
 - Apache 2.4 or upper server with mod_php enabled
-- PHP 5.6 or upper with CURL and JSON extensions
+- PHP 5.6 or upper with JSON extension
+
+## Optional Requirements
+
+- Composer (http://getcomposer.org) (Only if you plan to Upgrade/Reinstall Flight)
+- Flight PHP Framework (http://flightphp.com) (Already Bundled with the App)
 
 ## Directory Structure
 
@@ -28,13 +32,65 @@ compatibility checks, etc.
    - index.php			Full Implementation
 ```
 
-The Apache Server must be enabled to accept .htaccess files to Override
-configurations, you can check .htaccess file inside public_html.
+## Basic LAMP Setup on Debian
 
-## Installation on Apache Server
+During the setup we assume that you have a newly deployed
+Server or VM with Debian 8.
 
-The simplest installation method is to install it in a newly
-installed Server with an Standard and Basic LAMP setup:
+For all the setup operations you should be logged-in as 'root'
+
+To setup the basic LAMP use:
+
+```
+# apt-get install php5-cli php5-json
+# apt-get install apache2 libapache2-mod-php5
+```
+
+We do not require mysql.
+
+To check if PHP is running you can use:
+
+```
+# php -r "print \"hello\n\";"
+```
+
+You shoud see a hello.
+
+## Changing Apache to Port 8080
+
+To change Apache server to Listen on port 8080, you must edit
+/etc/apache2/ports.conf and change the line:
+
+```
+Listen 80
+```
+
+For the line:
+
+```
+Listen 8080
+```
+
+Then change the file /etc/apache2/sites-available/000-default.conf
+and change the lines:
+
+```
+<VirtualHost *:80>
+	....
+	DocumentRoot /var/www/html
+	....
+```
+
+For the lines:
+
+```
+<VirtualHost *:8080>
+	....
+	DocumentRoot /var/www/modus-crashapi/html
+	....
+```
+
+## Downloading and Installing the Application under the Apache Server
 
 1. Enter /var/www directory
 
@@ -42,84 +98,72 @@ installed Server with an Standard and Basic LAMP setup:
 # cd /var/www
 ```
 
-2. Clone the repository:
+2. You require git to download the repository:
+
+```
+# apt-get install git
+```
+
+3. Clone the repository:
 
 ```
 # git clone https://cgili@bitbucket.org/cgili/modus-crashapi.git
+# chown -R www-data:www-data modus-crashapi
 ```
 
-3. Restart Apache2:
+## Restart Apache and check the results
+
+To restart Apache use:
 
 ```
-# service apache2 restart
+# systemctl restart apache2
 ```
 
-## Composer and Flight Setup
+Now it should be able to access the server at port 8080:
 
-First you MUST be inside /var/www directory
+http://<your_server_ip>:8080
+
+You should get a JSON reponse simillar to:
 
 ```
-# cd /var/www
+{ "status": "Ready" }
 ```
 
-Then you need to install Composer as detailed details on their site at:
-http://getcomposer.com/download/
+## OPTIONAL: Composer and Flight Setup
+
+First you MUST be inside /var/www/modus-crashapi directory
+
+```
+# cd /var/www/modus-crashapi
+```
+
+To install Composer use:
 
 ```
 # php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 # php composer-setup.php
 ```
 
-To download and reinstall the Flight Framework you can check their
-site at http://flightphp.com/install/:
+This should have created two new files:
+
+```
+composer-setup.php
+composer.phar
+```
+
+To download and reinstall the Flight Framework you can use:
 
 ```
 # php composer.phar require mikecao/flight
 ```
 
-## Basic LAMP Setup on Debian/Ubuntu
+If you require aditional Information about the Composer installation
+you can check:
 
-For a basic setup of a LAMP on a newly deployed server use:
+http://getcomposer.com/download/
 
-```
-# apt-get install php5-cli php5-curl php5-json
-# apt-get install apache2 libapache2-mod-php
-```
+If tou require additional information about Flight setup you can
+check:
 
-This application does not require the installation of MySQL so
-we skipped that setup.
-
-##Changing Apache to Port 8080
-
-I you want Apache server to Listen on port 8080, you must edit
-/etc/apache2/ports.conf and change the line:
-
-```
-Listen 0.0.0.0:80
-```
-
-For the line:
-
-```
-Listen 0.0.0.0:8080
-```
-
-And finaly change the file /etc/apache2/sites-available/default.conf
-and change the line:
-
-```
-<VirtualHost *:80>
-```
-
-For the line:
-
-```
-<VirtualHost *:8080>
-```
-
-Finally you must restart Apache:
-
-```
-# systemctl restart apache2
-```
+http://flightphp.com/install/
 
