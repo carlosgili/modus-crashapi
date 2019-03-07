@@ -179,7 +179,7 @@ you can check:
 
 http://getcomposer.com/download/
 
-If tou require additional information about Flight setup you can
+If you require additional information about Flight setup you can
 check:
 
 http://flightphp.com/install/
