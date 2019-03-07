@@ -5,7 +5,7 @@ Crash Information API in PHP
 This is a simple API implementation developed for ModusCreate in order to get
 Crash Information from NHTSA (one.nhtsa.gov) in specific JSON Format.
 
-The implemtation is pretty simple and it does not offer security measures,
+The implementation is pretty simple and it does not offer security measures like
 authentication, full request parameters validation, full UTF-8 multilanguage
 compatibility checks, etc.
 
@@ -18,6 +18,7 @@ compatibility checks, etc.
 
 ## Directory Structure
 
+'''
  - vendor			Composer downloaded files (Flight Framework)
  - composer.json		Composer json configuration
  - composer.lock		Composer lock file
@@ -25,6 +26,7 @@ compatibility checks, etc.
  - html				The directory publised in the WEB Server
    - .htaccess			Apache Server configurations
    - index.php			Full Implementation
+'''
 
 The Apache Server must be enabled to accept .htaccess files to Override
 configurations, you can check .htaccess file inside public_html.
@@ -36,32 +38,44 @@ installed Server with an Standard and Basic LAMP setup:
 
 1. Enter /var/www directory
 
-    # cd /var/www
+'''
+# cd /var/www
+'''
 
 2. Clone the repository:
 
-    # git clone https://cgili@bitbucket.org/cgili/modus-crashapi.git
+'''
+# git clone https://cgili@bitbucket.org/cgili/modus-crashapi.git
+'''
 
 3. Restart Apache2:
 
-    # service apache2 restart
+'''
+# service apache2 restart
+'''
 
-# Composer and Flight Setup
+## Composer and Flight Setup
 
 First you MUST be inside /var/www directory
 
-    # cd /var/www
+'''
+# cd /var/www
+'''
 
 Then you need to install Composer as detailed details on their site at:
 http://getcomposer.com/download/
 
-    # php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    # php composer-setup.php
+'''
+# php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+# php composer-setup.php
+'''
 
 To download and reinstall the Flight Framework you can check their
 site at http://flightphp.com/install/:
 
-    # composer require mikecao/flight
+'''
+# composer require mikecao/flight
+'''
 
 ## Basic LAMP Setup on Debin/Ubuntu
 
