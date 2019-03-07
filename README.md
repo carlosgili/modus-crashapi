@@ -107,7 +107,7 @@ We will require git to download the repository:
 Clone the repository:
 
 ```
-# git clone https://cgili@bitbucket.org/cgili/modus-crashapi.git
+# git clone https://github.com/carlosgili/modus-crashapi.git
 # chown -R www-data:www-data modus-crashapi
 ```
 
